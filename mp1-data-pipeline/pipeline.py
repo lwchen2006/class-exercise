@@ -61,6 +61,12 @@ def main():
     if not validate_input(args.input):
         sys.exit(1)
 
+    try:
+        data = load_data(args.input)
+    except ValueError:
+        sys.exit(1)
+
+
 
 
 if __name__ == "__main__":

@@ -43,3 +43,4 @@ def load_data(filepath):
     else:
         logger.error("Unsupported file format: %s", extension)
         raise ValueError(f"Unsupported file format: {extension}")
+    

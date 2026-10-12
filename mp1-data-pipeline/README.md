@@ -30,21 +30,20 @@ python pipeline.py --input fixtures/sample_data.csv --output output/clean.csv --
 
 Output:
 
-```text
-21:23:31 DEBUG    __main__ — Arguments parsed: input=fixtures/sample_data.csv, config=config/config.yaml, output=output/clean.csv
-21:23:31 INFO     src.utils — Input file validated: fixtures/sample_data.csv
-21:23:31 INFO     src.utils — Input file validated: config/config.yaml
-21:23:31 INFO     src.data_loaders — Loaded CSV file: fixtures/sample_data.csv (100 rows)
-21:23:31 INFO     src.data_loaders — Loaded YAML file: config/config.yaml
-21:23:31 WARNING  src.data_validator — Removed 2 rows with invalid numeric values in rating
-21:23:31 DEBUG    src.data_validator — Validation: 100 → 98 rows (2 removed)
-21:23:31 INFO     __main__ — Validation complete: 100 → 98 rows
-21:23:31 DEBUG    src.data_processor — remove_duplicates: 98 → 96 rows
-21:23:31 DEBUG    src.data_processor — handle_missing: 96 → 94 rows
-21:23:31 DEBUG    src.data_processor — rating: method=iqr, threshold=1.5, lower=43.625, upper=106.625, removed=2
-21:23:31 INFO     __main__ — Processing complete: 98 → 92 rows
-21:23:32 DEBUG    src.data_output — Saved 92 rows to output/clean.csv
-21:23:32 INFO     __main__ — Saved cleaned data to output/clean.csv
+19:06:00 DEBUG    __main__ — Arguments parsed: input=fixtures/sample_data.csv, config=config/config.yaml, output=output/clean.csv
+19:06:00 INFO     src.utils — Input file validated: fixtures/sample_data.csv
+19:06:00 INFO     src.utils — Input file validated: config/config.yaml
+19:06:00 INFO     src.data_loaders — Loaded CSV file: fixtures\sample_data.csv (100 rows)
+19:06:00 INFO     src.data_loaders — Loaded YAML file: config\config.yaml
+19:06:00 WARNING  src.data_validator — Removed 2 rows with invalid numeric values in rating
+19:06:00 DEBUG    src.data_validator — Validation: 100 → 98 rows (2 removed)
+19:06:00 INFO     __main__ — Validation complete: 100 → 98 rows
+19:06:00 DEBUG    src.data_processor — remove_duplicates: 98 → 96 rows
+19:06:00 DEBUG    src.data_processor — handle_missing: 96 → 94 rows
+19:06:00 DEBUG    src.data_processor — rating: method=iqr, threshold=1.5, lower=43.625, upper=106.625, removed=2
+19:06:00 INFO     __main__ — Processing complete: 98 → 92 rows
+19:06:00 DEBUG    src.data_output — Saved 92 rows to output\clean.csv
+19:06:00 INFO     __main__ — Saved cleaned data to output\clean.csv
 
 Cleaning report:
 {
@@ -55,4 +54,3 @@ Cleaning report:
     'columns_after': 5,
     'columns_removed': 0,
 }
-```

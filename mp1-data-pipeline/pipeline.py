@@ -52,22 +52,43 @@ def main():
     args = parse_arguments()
     setup_logging(args.verbose)
     logger.debug(
-        "Arguments parsed: input=%s, output=%s, format=%s",
+        "Arguments parsed: input=%s, config=%s, output=%s",
         args.input,
+        args.config,
         args.output,
-        args.format,
     )
  
     if not validate_input(args.input):
         sys.exit(1)
-
+    if not validate_input(args.config):
+        sys.exit(1)
+ 
     try:
         data = load_data(args.input)
+        config = load_data(args.config)
     except ValueError:
         sys.exit(1)
-
-
-
-
+ 
+    df_original = data.copy()
+ 
+    try:
+        df_clean = process_data(data, config)
+    except ValueError:
+        sys.exit(1)
+ 
+    report = create_cleaning_report(df_original, df_clean)
+    print("{")
+    for key, value in report.items():
+        print(f"    '{key}': {value},")
+    print("}")
+ 
+    logger.info(
+        "Processing complete: %d → %d rows", report["rows_before"], report["rows_after"]
+    )
+ 
+    df_clean.to_csv(args.output, index=False)
+    logger.info("Saved cleaned data to %s", args.output)
+ 
+ 
 if __name__ == "__main__":
     main()
